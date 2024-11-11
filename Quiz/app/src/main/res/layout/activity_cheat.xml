@@ -18,7 +18,7 @@
         />
 
     <TextView
-        android:id="@+id/text_answer"
+        android:id="@+id/text_view_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"

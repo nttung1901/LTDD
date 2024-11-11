@@ -1,7 +1,12 @@
 package com.nttung.quiz;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mButtonPrevious;
     private TextView mTextViewQuestion;
     private Button mButtonCheat;
+    private int mCurrentIndex = 0;
+    private boolean mIsCheater;
 
     private Question[] mQuestionsBank= {
             new Question(R.string.question1,true),
@@ -29,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         mTextViewQuestion.setText(mQuestionsBank[mCurrentIndex].getmTestResId());
     }
 
-    private int mCurrentIndex = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,15 +68,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mButtonCheat = findViewById(R.id.button_cheat);
-        mButtonCheat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                boolean answer = mQuestionsBank[mCurrentIndex].ismAnswerTrue();
-                Intent i = CheatActivity.newIntent(MainActivity.this,answer);
-                startActivity(i);
-            }
-        });
 
         mButtonNext= findViewById(R.id.button_next);
         mButtonNext.setOnClickListener(new View.OnClickListener() {
@@ -89,5 +87,27 @@ public class MainActivity extends AppCompatActivity {
                 updateQuestion();
             }
         });
+
+
+        mButtonCheat = findViewById(R.id.button_cheat);
+        mButtonCheat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean answer = mQuestionsBank[mCurrentIndex].ismAnswerTrue();
+                Intent i = CheatActivity.newIntent(MainActivity.this,answer);
+                startActivity(i);
+            }
+        });
+
+
+        ActivityResultLauncher<Intent> starActivity4Result= registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+
+                    }
+                }
+        );
     }
 }
