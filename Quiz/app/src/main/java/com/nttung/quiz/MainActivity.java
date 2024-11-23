@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
 
-    private TextView mTextViewQuesTion;
+    private TextView mTextViewQuestion;
     private Button mButtonTrue;
     private Button mButtonFalse;
     private Button mButtonPrevious;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void updateQuestion(){
-        mTextViewQuesTion.setText(mQuestionBank[mCurrentIndex].getmTextResId());
+        mTextViewQuestion.setText(mQuestionBank[mCurrentIndex].getmTextResId());
     }
 
     private void checkAnswer(boolean userPressTrue){
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate() called");
         setContentView(R.layout.activity_main);
 
-        mTextViewQuesTion = findViewById(R.id.textview_question);
+        mTextViewQuestion = findViewById(R.id.textview_question);
         updateQuestion();
 
         mButtonTrue = findViewById(R.id.button_true);
@@ -73,10 +73,8 @@ public class MainActivity extends AppCompatActivity {
         mButtonPrevious.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mCurrentIndex>0) {
-                    mCurrentIndex--;
-                    updateQuestion();
-                }
+                mCurrentIndex = (mCurrentIndex - 1 + mQuestionBank.length) % mQuestionBank.length;
+                updateQuestion();
             }
         });
 
@@ -88,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 updateQuestion();
             }
         });
+
 
         if(savedInstanceState != null){
             mCurrentIndex = savedInstanceState.getInt(KEY_INDEX,0);
