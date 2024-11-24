@@ -7,7 +7,7 @@
     <string name="button_next">&gt;</string>
 
     <string name="toast_true">Bạn đã trả lời đúng</string>
-    <string name ="toast_false">Bạn đã trả lời sai</string>
+    <string name="toast_false">Bạn đã trả lời sai</string>
 
     <string name="question_1">1 + 1 = 2 ?</string>
     <string name="question_2">1 + 3 = 5 ?</string>
@@ -15,4 +15,11 @@
     <string name="question_4">1 + 11 = 11 ?</string>
     <string name="question_5">9 * 9 = 81 ?</string>
 
+    <string name="textview_cheat_question">Are you sure you want to do this?</string>
+    <string name="textview_show_answer_true">True</string>
+    <string name="textview_show_answer_false">Falses</string>
+    <string name="button_show_answer">Show Answer</string>
+    <string name="button_cheat">Cheat!</string>
+
+    <string name="toast_cheating">Bạn đã gian lận!</string>
 </resources>

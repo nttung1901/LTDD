@@ -44,23 +44,21 @@
         android:gravity="center"
         android:layout_gravity="bottom">
 
-        <Button
-            android:id="@+id/button_previous"
+        <ImageButton
+            android:id="@+id/imagebutton_previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="@string/button_previous"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
+            android:src="@drawable/baseline_arrow_back_ios_new_24"/>
 
 
-        <Button
-            android:id="@+id/button_next"
+
+        <ImageButton
+            android:id="@+id/imagebutton_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="@string/button_next"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
+            android:src="@drawable/baseline_navigate_next_24"/>
+
     </LinearLayout>
 </FrameLayout>
