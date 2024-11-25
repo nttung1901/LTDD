@@ -7,9 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,10 +14,6 @@ import android.widget.EditText;
  * create an instance of this fragment.
  */
 public class CrimeFragment extends Fragment {
-    private Crime mCrime;
-    private EditText mEditText_CrimeTitle;
-    private Button mButtonDate;
-    private CheckBox mCheckBoxSolved;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

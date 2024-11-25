@@ -3,41 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".CrimeFragment">
+    tools:context=".CrimeFragment"
+    android:orientation="vertical">
 
+    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="?android:listSeparatorTextViewStyle"
-        android:text="Title" />
+        android:text="@string/textview_title" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:hint="Enter a title for the crime."/>
+        android:hint="@string/edittext_hint"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="?android:listSeparatorTextViewStyle"
-        android:text="Details"/>
+        android:text="@string/textview_details"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"/>
+        android:layout_height="wrap_content"/>
 
     <CheckBox
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Solved"
-        android:layout_marginLeft="25dp"/>
+        android:layout_gravity="start"/>
 
 </LinearLayout>
