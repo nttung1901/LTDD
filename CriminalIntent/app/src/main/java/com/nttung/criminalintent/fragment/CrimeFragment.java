@@ -1,15 +1,21 @@
-package com.nttung.criminalintent;
+package com.nttung.criminalintent.fragment;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+
+import com.nttung.criminalintent.Crime;
+import com.nttung.criminalintent.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,6 +62,7 @@ public class CrimeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mCrime = new Crime();
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -66,6 +73,39 @@ public class CrimeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_crime, container, false);
+        View v = inflater.inflate(R.layout.fragment_crime, container, false);
+
+        mEditTextCrimeTile = v.findViewById(R.id.edittext_crime_tile);
+        mEditTextCrimeTile.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mCrime.setmTitle(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        mButtonCrimeDate = v.findViewById(R.id.button_crime_date);
+        String currentDate = mCrime.getmDate().toString();
+        mButtonCrimeDate.setText(currentDate);
+        mButtonCrimeDate.setEnabled(false);
+
+        mCheckBoxCrimeSolved = v.findViewById(R.id.checkbox_crime_solved);
+        mCheckBoxCrimeSolved.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mCrime.setmSolved(isChecked);
+            }
+        });
+
+        return v;//inflater.inflate(R.layout.fragment_crime, container, false);
     }
 }

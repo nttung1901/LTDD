@@ -1,20 +1,20 @@
-package com.nttung.criminalintent;
+package com.nttung.criminalintent.activity;
 
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
-public class MainActivity extends FragmentActivity {
+import com.nttung.criminalintent.R;
+import com.nttung.criminalintent.fragment.CrimeFragment;
+
+public abstract class SingleFragmentActivity extends FragmentActivity {
+    protected abstract Fragment createFragment();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -22,7 +22,7 @@ public class MainActivity extends FragmentActivity {
         Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_container);
 
         if(fragment == null){
-            fragment = new CrimeFragment();
+            fragment = createFragment();
             fragmentManager.beginTransaction()
                     .add(R.id.fragment_container, fragment)
                     .commit();
