@@ -3,26 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <CheckBox
-        android:id="@+id/checkbox_listItemCrime_solved"
+        android:id="@+id/checkBox_listItemCrime_solved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:padding="4dp"/>
 
     <TextView
-        android:id="@+id/textview_listItemCrime_title"
+        android:id="@+id/textView_listItemCrime_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/checkbox_listItemCrime_solved"
-        android:textStyle="bold"
-        android:padding="4dp"/>
+        android:layout_toLeftOf="@id/checkBox_listItemCrime_solved"
+        android:padding="4dp"
+        android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/textview_listItemCrime_date"
+        android:id="@+id/textView_listItemCrime_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/checkbox_listItemCrime_solved"
-        android:layout_below="@id/textview_listItemCrime_title"/>
+        android:layout_below="@id/textView_listItemCrime_title"
+        android:layout_toLeftOf="@id/checkBox_listItemCrime_solved"
+        android:textStyle="bold"/>
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.nttung.criminalintent.fragment;
+package com.nttung.criminalintent;
 
 import android.os.Bundle;
 
@@ -13,10 +13,6 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.nttung.criminalintent.Crime;
-import com.nttung.criminalintent.CrimeLab;
-import com.nttung.criminalintent.R;
-
 import java.util.List;
 
 /**
@@ -25,12 +21,11 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class CrimeListFragment extends Fragment {
+    private RecyclerView mRecyclerviewCrime;
+    private CrimeAdapter CrimeAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private RecyclerView mRecycleviewCrime;
-    private CrimeAdapter mCrimeAdapter;
-
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -42,60 +37,60 @@ public class CrimeListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_crime_list, container, false);
+        View view =inflater.inflate(R.layout.fragment_crime_list, container, false);
 
-        mRecycleviewCrime = view.findViewById(R.id.recycleview_crime);
-        mRecycleviewCrime.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerviewCrime = view.findViewById(R.id.recyclerview_crime);
+        mRecyclerviewCrime.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         CrimeLab crimeLab = CrimeLab.get(getActivity());
         List<Crime> crimes = crimeLab.getCrimes();
-        mCrimeAdapter = new CrimeAdapter(crimes);
-        mRecycleviewCrime.setAdapter(mCrimeAdapter);
-
+        CrimeAdapter = new CrimeAdapter(crimes);
+        mRecyclerviewCrime.setAdapter(CrimeAdapter);
         return view;
     }
 
     private class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        private TextView mTextViewTitle;
-        private TextView mTextViewDate;
-        private CheckBox mCheckBoxSolved;
+        private CheckBox mCheckBoxListItemSolved;
+        private TextView mTextViewListItemTitle;
+        private TextView mTextViewListItemDate;
         private Crime mCrime;
 
         public void bindCrime(Crime crime){
             mCrime = crime;
-            mTextViewTitle.setText(mCrime.getmTitle());
-            mTextViewDate.setText(mCrime.getmDate().toString());
-            mCheckBoxSolved.setChecked(mCrime.ismSolved());
-
+            mCheckBoxListItemSolved.setChecked(mCrime.ismSolved());
+            mTextViewListItemTitle.setText(mCrime.getmTitle());
+            mTextViewListItemDate.setText(mCrime.getmDate().toString());
         }
 
         public CrimeHolder(View itemView){
             super(itemView);
             itemView.setOnClickListener(this);
 
-            mTextViewTitle = itemView.findViewById(R.id.textview_listItemCrime_title);
-            mTextViewDate = itemView.findViewById(R.id.textview_listItemCrime_date);
-            mCheckBoxSolved = itemView.findViewById(R.id.checkbox_listItemCrime_solved);
+            mTextViewListItemTitle = itemView.findViewById(R.id.textView_listItemCrime_title);
+            mTextViewListItemDate = itemView.findViewById(R.id.textView_listItemCrime_date);
+            mCheckBoxListItemSolved = itemView.findViewById(R.id.checkBox_listItemCrime_solved);
         }
 
         @Override
         public void onClick(View v) {
-
+            // ...
         }
     }
 
     private class CrimeAdapter extends RecyclerView.Adapter<CrimeHolder>{
         private List<Crime> mCrimes;
 
-        public  CrimeAdapter(List<Crime> crimes){
+        public CrimeAdapter(List<Crime> crimes){
             mCrimes = crimes;
         }
+
         @NonNull
         @Override
         public CrimeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
 
-            View view = layoutInflater.inflate(R.layout.list_item_crime, parent, false);
+            View view = layoutInflater.inflate(R.layout.list_item_crime,parent,false);
+
             return new CrimeHolder(view);
         }
 
@@ -141,6 +136,4 @@ public class CrimeListFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
-
 }

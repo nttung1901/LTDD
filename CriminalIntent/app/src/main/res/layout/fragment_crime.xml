@@ -3,42 +3,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".fragment.CrimeFragment">
+    tools:context=".CrimeFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="?android:listSeparatorTextViewStyle"
-        android:text="@string/crime_title" />
+        android:text="@string/fragment_crime_title"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/edittext_crime_tile"
+        android:id="@+id/editText_fragmentCrime_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:hint="@string/crime_hint"/>
+        android:inputType="text"
+        android:hint="@string/fragment_crime_hint"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/crime_details"
-        style="?android:listSeparatorTextViewStyle"/>
+        android:text="@string/fragment_crime_details"
+        style="?android:listSeparatorTextViewStyle"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
     <Button
-        android:id="@+id/button_crime_date"
+        android:id="@+id/button_fragmentCrime_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:enabled="false"/>
 
     <CheckBox
-        android:id="@+id/checkbox_crime_solved"
+        android:id="@+id/checkBox_fragmentCrime_solved"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/crime_solved"
-        android:layout_marginLeft="16dp"/>
-
+        android:text="@string/fragment_crime_solved"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="61dp"/>
 </LinearLayout>

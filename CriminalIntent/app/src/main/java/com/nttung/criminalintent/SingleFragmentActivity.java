@@ -1,20 +1,17 @@
-package com.nttung.criminalintent.activity;
+package com.nttung.criminalintent;
 
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
-import com.nttung.criminalintent.R;
-import com.nttung.criminalintent.fragment.CrimeFragment;
-
 public abstract class SingleFragmentActivity extends FragmentActivity {
+
     protected abstract Fragment createFragment();
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -23,9 +20,7 @@ public abstract class SingleFragmentActivity extends FragmentActivity {
 
         if(fragment == null){
             fragment = createFragment();
-            fragmentManager.beginTransaction()
-                    .add(R.id.fragment_container, fragment)
-                    .commit();
+            fragmentManager.beginTransaction().add(R.id.fragment_container,fragment).commit();
         }
     }
 }

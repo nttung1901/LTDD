@@ -1,4 +1,4 @@
-package com.nttung.criminalintent.fragment;
+package com.nttung.criminalintent;
 
 import android.os.Bundle;
 
@@ -13,9 +13,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 
-import com.nttung.criminalintent.Crime;
-import com.nttung.criminalintent.R;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,9 +24,9 @@ import com.nttung.criminalintent.R;
  */
 public class CrimeFragment extends Fragment {
     private Crime mCrime;
-    private EditText mEditTextCrimeTile;
-    private Button mButtonCrimeDate;
-    private CheckBox mCheckBoxCrimeSolved;
+    private EditText mEditTextFragmentTitle;
+    private Button mButtonFragmentDate;
+    private CheckBox mCheckBoxFragmentSolved;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,11 +62,15 @@ public class CrimeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mCrime = new Crime();
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
@@ -75,8 +79,8 @@ public class CrimeFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_crime, container, false);
 
-        mEditTextCrimeTile = v.findViewById(R.id.edittext_crime_tile);
-        mEditTextCrimeTile.addTextChangedListener(new TextWatcher() {
+        mEditTextFragmentTitle = v.findViewById(R.id.editText_fragmentCrime_title);
+        mEditTextFragmentTitle.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -93,19 +97,18 @@ public class CrimeFragment extends Fragment {
             }
         });
 
-        mButtonCrimeDate = v.findViewById(R.id.button_crime_date);
+        mButtonFragmentDate = v.findViewById(R.id.button_fragmentCrime_date);
         String currentDate = mCrime.getmDate().toString();
-        mButtonCrimeDate.setText(currentDate);
-        mButtonCrimeDate.setEnabled(false);
+        mButtonFragmentDate.setText(currentDate);
 
-        mCheckBoxCrimeSolved = v.findViewById(R.id.checkbox_crime_solved);
-        mCheckBoxCrimeSolved.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mCheckBoxFragmentSolved = v.findViewById(R.id.checkBox_fragmentCrime_solved);
+        mCheckBoxFragmentSolved.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 mCrime.setmSolved(isChecked);
             }
         });
 
-        return v;//inflater.inflate(R.layout.fragment_crime, container, false);
+        return v; //inflater.inflate(R.layout.fragment_crime, container, false);
     }
 }
