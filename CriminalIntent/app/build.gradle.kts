@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.nttung.criminalintent"
+    namespace = "ou.nttung.criminalintent"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.nttung.criminalintent"
+        applicationId = "ou.nttung.criminalintent"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

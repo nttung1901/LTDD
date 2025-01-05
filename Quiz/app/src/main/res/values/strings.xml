@@ -1,25 +1,23 @@
 <resources>
     <string name="app_name">Quiz</string>
 
-    <string name="button_true">True</string>
-    <string name="button_false">False</string>
-    <string name="button_previous">&lt;</string>
-    <string name="button_next">&gt;</string>
+    <string name="true_button">True</string>
+    <string name="false_button">False</string>
+    <string name="previous_button">&lt;</string>
+    <string name="next_button">&gt;</string>
+    <string name="cheat_button">Cheat</string>
 
-    <string name="toast_true">Bạn đã trả lời đúng</string>
-    <string name="toast_false">Bạn đã trả lời sai</string>
+    <string name="cheat_question">Are you sure you want to do this?</string>
+    <string name="show_answer_button">Show Answer</string>
+    
+    <string name="question_1">1+1=2</string>
+    <string name="question_2">9-6=9</string>
+    <string name="question_3">3+1=4</string>
+    <string name="question_4">4+1=2</string>
+    <string name="question_5">5+1=6</string>
 
-    <string name="question_1">1 + 1 = 2 ?</string>
-    <string name="question_2">1 + 3 = 5 ?</string>
-    <string name="question_3">2 + 5 = 7 ?</string>
-    <string name="question_4">1 + 11 = 11 ?</string>
-    <string name="question_5">9 * 9 = 81 ?</string>
+    <string name="true_toast">Đáp án đúng!</string>
+    <string name="false_toast">Đáp án sai!</string>
+    <string name="cheating_toast">Bạn đã gian lận</string>
 
-    <string name="textview_cheat_question">Are you sure you want to do this?</string>
-    <string name="textview_show_answer_true">True</string>
-    <string name="textview_show_answer_false">Falses</string>
-    <string name="button_show_answer">Show Answer</string>
-    <string name="button_cheat">Cheat!</string>
-
-    <string name="toast_cheating">Bạn đã gian lận!</string>
 </resources>

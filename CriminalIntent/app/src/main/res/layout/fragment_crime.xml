@@ -3,50 +3,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CrimeFragment"
+    tools:context=".Fragments.CrimeFragment"
     android:orientation="vertical">
 
-
     <TextView
-        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="?android:listSeparatorTextViewStyle"
-        android:text="@string/fragment_crime_title"
-        android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:text="@string/title"
+        style="?android:listSeparatorTextViewStyle"/>
 
     <EditText
-        android:id="@+id/editText_fragmentCrime_title"
+        android:id="@+id/title_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="@string/fragment_crime_hint"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+        android:hint="@string/hint"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/fragment_crime_details"
-        style="?android:listSeparatorTextViewStyle"
-        android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:text="@string/details"
+        style="?android:listSeparatorTextViewStyle"/>
 
-    <Button
-        android:id="@+id/button_fragmentCrime_date"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/date_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:enabled="false"/>
+        android:enabled="false"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
 
     <CheckBox
-        android:id="@+id/checkBox_fragmentCrime_solved"
-        android:layout_width="match_parent"
+        android:id="@+id/solved_checkBox"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fragment_crime_solved"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="61dp"/>
+        android:text="@string/solved"
+        android:layout_marginStart="20dp"/>
+
 </LinearLayout>

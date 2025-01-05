@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.nttung.quiz"
+    namespace = "ou.nttung.quiz"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.nttung.quiz"
+        applicationId = "ou.nttung.quiz"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -26,8 +26,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 
